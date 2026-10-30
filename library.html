@@ -1,0 +1,377 @@
+Save this code as `library.html` and open it in your browser.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Library Management</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f5f9;
+    color: #222;
+}
+
+/* Header */
+header {
+    background: #123458;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* Navigation */
+nav {
+    background: #2563eb;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* Welcome Section */
+.welcome {
+    background: linear-gradient(120deg, #2563eb, #06b6d4);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.welcome h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    font-size: 18px;
+}
+
+/* Search Box */
+.search {
+    text-align: center;
+    padding: 25px;
+}
+
+.search input {
+    width: 80%;
+    max-width: 500px;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+/* Book Section */
+.books {
+    padding: 30px;
+}
+
+.books h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #123458;
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* Book Cards */
+.book-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px #00000020;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+}
+
+.book-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.book-card h3 {
+    margin: 15px 5px 10px;
+    color: #123458;
+}
+
+.book-card p {
+    margin: 8px;
+    color: #555;
+}
+
+.available {
+    color: green !important;
+    font-weight: bold;
+}
+
+.unavailable {
+    color: red !important;
+    font-weight: bold;
+}
+
+.book-card button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book-card button:hover {
+    background: #123458;
+}
+
+/* Categories */
+.categories {
+    background: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.categories h2 {
+    margin-bottom: 20px;
+}
+
+.categories button {
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 20px;
+    background: #dbeafe;
+    cursor: pointer;
+}
+
+.categories button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Library Rules */
+.rules {
+    padding: 30px;
+    line-height: 2;
+}
+
+.rules h2 {
+    color: #123458;
+}
+
+/* Footer */
+footer {
+    background: #123458;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    .books {
+        padding: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Smart Library</h1>
+    <p>Your Gateway to Knowledge</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#books">Books</a>
+    <a href="#categories">Categories</a>
+    <a href="#rules">Rules</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="welcome" id="home">
+    <h2>Welcome to Our Digital Library</h2>
+    <p>Explore thousands of books and discover new knowledge.</p>
+</section>
+
+<section class="search">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search books by title or author..."
+        onkeyup="searchBooks()">
+</section>
+
+<section class="books" id="books">
+    <h2>📖 Our Popular Books</h2>
+
+    <div class="book-container" id="bookContainer">
+
+        <div class="book-card" data-category="programming">
+            <img src="https://covers.openlibrary.org/b/title/Python%20Crash%20Course-M.jpg"
+                 alt="Python book cover">
+            <h3>Python Programming</h3>
+            <p>Author: Eric Matthes</p>
+            <p>Category: Programming</p>
+            <p class="available">Available</p>
+            <button onclick="borrowBook(this)">Borrow Book</button>
+        </div>
+
+        <div class="book-card" data-category="technology">
+            <img src="https://covers.openlibrary.org/b/title/Artificial%20Intelligence-M.jpg"
+                 alt="Artificial Intelligence book cover">
+            <h3>Artificial Intelligence</h3>
+            <p>Author: Stuart Russell</p>
+            <p>Category: Technology</p>
+            <p class="available">Available</p>
+            <button onclick="borrowBook(this)">Borrow Book</button>
+        </div>
+
+        <div class="book-card" data-category="programming">
+            <img src="https://covers.openlibrary.org/b/title/JavaScript%20and%20JQuery-M.jpg"
+                 alt="JavaScript book cover">
+            <h3>Web Development</h3>
+            <p>Author: Jon Duckett</p>
+            <p>Category: Programming</p>
+            <p class="unavailable">Not Available</p>
+            <button disabled>Unavailable</button>
+        </div>
+
+        <div class="book-card" data-category="science">
+            <img src="https://covers.openlibrary.org/b/title/A%20Brief%20History%20of%20Time-M.jpg"
+                 alt="Science book cover">
+            <h3>A Brief History of Time</h3>
+            <p>Author: Stephen Hawking</p>
+            <p>Category: Science</p>
+            <p class="available">Available</p>
+            <button onclick="borrowBook(this)">Borrow Book</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="categories" id="categories">
+    <h2>📂 Book Categories</h2>
+
+    <button onclick="filterBooks('all')">All Books</button>
+    <button onclick="filterBooks('programming')">Programming</button>
+    <button onclick="filterBooks('technology')">Technology</button>
+    <button onclick="filterBooks('science')">Science</button>
+</section>
+
+<section class="rules" id="rules">
+    <h2>📌 Library Rules</h2>
+    <ul>
+        <li>Return borrowed books on time.</li>
+        <li>Keep books clean and safe.</li>
+        <li>Maintain silence in the library.</li>
+        <li>Do not damage library materials.</li>
+        <li>Borrowing is subject to book availability.</li>
+    </ul>
+</section>
+
+<footer id="contact">
+    <h3>Smart Library Management System</h3>
+    <p>Email: library@example.com</p>
+    <p>© 2026 Smart Library. All Rights Reserved.</p>
+</footer>
+
+<script>
+function searchBooks() {
+    let input = document.getElementById("searchInput")
+        .value.toLowerCase();
+
+    let books = document.querySelectorAll(".book-card");
+
+    books.forEach(function(book) {
+        let text = book.innerText.toLowerCase();
+
+        book.style.display = text.includes(input)
+            ? ""
+            : "none";
+    });
+}
+
+function filterBooks(category) {
+    let books = document.querySelectorAll(".book-card");
+
+    books.forEach(function(book) {
+        if (
+            category === "all" ||
+            book.dataset.category === category
+        ) {
+            book.style.display = "";
+        } else {
+            book.style.display = "none";
+        }
+    });
+
+    document.getElementById("searchInput").value = "";
+}
+
+function borrowBook(button) {
+    let card = button.closest(".book-card");
+    let status = card.querySelector("p.available");
+
+    if (!status) {
+        alert("This book is not available.");
+        return;
+    }
+
+    status.textContent = "Borrowed";
+    status.className = "unavailable";
+
+    button.textContent = "Already Borrowed";
+    button.disabled = true;
+
+    alert("Book borrowed successfully!");
+}
+</script>
+
+</body>
+</html>
+```

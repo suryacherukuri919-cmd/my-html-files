@@ -1,0 +1,852 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FutureTech Learning Academy</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f7fc;
+    color: #222;
+}
+
+/* HEADER */
+header {
+    background: #10172a;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #00e5ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00e5ff;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 470px;
+    padding: 80px 8%;
+    background: linear-gradient(120deg, #10172a, #174ea6);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #00e5ff;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero-art {
+    font-size: 110px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background: #00e5ff;
+    color: #10172a;
+    padding: 14px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #80f3ff;
+    transform: scale(1.03);
+}
+
+/* STATISTICS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 30px 8%;
+    background: white;
+    text-align: center;
+}
+
+.stat-box h2 {
+    color: #174ea6;
+    margin-bottom: 8px;
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 60px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #10172a;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* SEARCH */
+.search-box {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.search-box input {
+    width: 90%;
+    max-width: 500px;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+/* COURSE CARDS */
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #00000012;
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px #00000020;
+}
+
+.course-top {
+    padding: 28px;
+    color: white;
+    text-align: center;
+}
+
+.python {
+    background: linear-gradient(120deg, #306998, #174ea6);
+}
+
+.ai {
+    background: linear-gradient(120deg, #7b2ff7, #4c1d95);
+}
+
+.ml {
+    background: linear-gradient(120deg, #00897b, #004d40);
+}
+
+.course-icon {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.course-top h3 {
+    font-size: 23px;
+}
+
+.course-content {
+    padding: 25px;
+}
+
+.course-content p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.course-content ul {
+    padding-left: 20px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: #174ea6;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
+.course-content .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* SYLLABUS */
+#syllabus {
+    background: #eaf1ff;
+}
+
+.syllabus-list {
+    max-width: 850px;
+    margin: auto;
+}
+
+.syllabus-item {
+    background: white;
+    padding: 22px;
+    margin: 15px 0;
+    border-left: 5px solid #174ea6;
+    border-radius: 8px;
+}
+
+.syllabus-item h3 {
+    color: #174ea6;
+    margin-bottom: 10px;
+}
+
+.syllabus-item p {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* WHY CHOOSE US */
+.benefit-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.benefit {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px #00000010;
+}
+
+.benefit div {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.benefit h3 {
+    margin-bottom: 10px;
+    color: #174ea6;
+}
+
+.benefit p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* ENROLLMENT */
+#enrollment {
+    background: #eaf1ff;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #00000015;
+}
+
+.form-container label {
+    display: block;
+    margin: 16px 0 8px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    outline: 2px solid #174ea6;
+    border-color: transparent;
+}
+
+.form-container .btn {
+    width: 100%;
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+#message {
+    margin-top: 20px;
+    line-height: 1.7;
+    text-align: center;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+footer {
+    background: #10172a;
+    color: white;
+    padding: 30px 8%;
+    text-align: center;
+    line-height: 2;
+}
+
+footer span {
+    color: #00e5ff;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 650px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        line-height: 2.2;
+    }
+
+    nav a {
+        margin: 7px;
+    }
+
+    .hero {
+        text-align: center;
+        justify-content: center;
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: 33px;
+    }
+
+    .hero-art {
+        font-size: 75px;
+    }
+
+    section {
+        padding: 40px 6%;
+    }
+
+    .form-container {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">🚀 FutureTech Academy</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#syllabus">Syllabus</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#enrollment">Enroll</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <h1>Learn <span>Python, AI & ML</span></h1>
+
+        <p>
+            Build your future with programming and artificial intelligence.
+            Learn step by step, practice coding, and develop projects
+            with our beginner-friendly online learning programs.
+        </p>
+
+        <a href="#courses" class="btn">Explore Courses →</a>
+        <a href="#enrollment" class="btn">Join Now</a>
+    </div>
+
+    <div class="hero-art">🐍 🤖 🧠</div>
+
+</section>
+
+<!-- STATISTICS -->
+<div class="stats">
+
+    <div class="stat-box">
+        <h2>3</h2>
+        <p>Learning Paths</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>15+</h2>
+        <p>Course Modules</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>20+</h2>
+        <p>Practice Projects</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>100%</h2>
+        <p>Beginner Friendly</p>
+    </div>
+
+</div>
+
+<!-- COURSES -->
+<section id="courses">
+
+    <h2 class="section-title">Our Online Courses</h2>
+
+    <p class="section-description">
+        Choose a course and begin your technology journey today.
+    </p>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search Python, AI, or Machine Learning..."
+            oninput="searchCourses()">
+    </div>
+
+    <div class="course-container" id="courseContainer">
+
+        <!-- PYTHON -->
+        <div class="course-card" data-name="python programming coding beginner">
+
+            <div class="course-top python">
+                <div class="course-icon">🐍</div>
+                <h3>Python Programming</h3>
+            </div>
+
+            <div class="course-content">
+                <p>Learn programming from the basics to advanced concepts.</p>
+
+                <ul>
+                    <li>Variables and data types</li>
+                    <li>Conditions and loops</li>
+                    <li>Functions and collections</li>
+                    <li>Object-oriented programming</li>
+                    <li>Python mini projects</li>
+                </ul>
+
+                <p><strong>Duration:</strong> 8 Weeks</p>
+
+                <div class="price">₹999</div>
+
+                <button class="btn"
+                    onclick="selectCourse('Python Programming')">
+                    Enroll Now
+                </button>
+            </div>
+
+        </div>
+
+        <!-- AI -->
+        <div class="course-card" data-name="artificial intelligence ai">
+
+            <div class="course-top ai">
+                <div class="course-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+            </div>
+
+            <div class="course-content">
+                <p>Understand AI concepts and explore intelligent systems.</p>
+
+                <ul>
+                    <li>Introduction to AI</li>
+                    <li>Problem-solving techniques</li>
+                    <li>Search algorithms</li>
+                    <li>Generative AI fundamentals</li>
+                    <li>AI applications and projects</li>
+                </ul>
+
+                <p><strong>Duration:</strong> 6 Weeks</p>
+
+                <div class="price">₹1,499</div>
+
+                <button class="btn"
+                    onclick="selectCourse('Artificial Intelligence')">
+                    Enroll Now
+                </button>
+            </div>
+
+        </div>
+
+        <!-- MACHINE LEARNING -->
+        <div class="course-card" data-name="machine learning ml data science">
+
+            <div class="course-top ml">
+                <div class="course-icon">🧠</div>
+                <h3>Machine Learning</h3>
+            </div>
+
+            <div class="course-content">
+                <p>Learn how computers identify patterns and make predictions.</p>
+
+                <ul>
+                    <li>ML fundamentals</li>
+                    <li>Data preparation</li>
+                    <li>Supervised learning</li>
+                    <li>Unsupervised learning</li>
+                    <li>Prediction projects</li>
+                </ul>
+
+                <p><strong>Duration:</strong> 8 Weeks</p>
+
+                <div class="price">₹1,999</div>
+
+                <button class="btn"
+                    onclick="selectCourse('Machine Learning')">
+                    Enroll Now
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <p id="noResults" style="display:none;text-align:center;margin-top:25px;">
+        No matching courses found.
+    </p>
+
+</section>
+
+<!-- SYLLABUS -->
+<section id="syllabus">
+
+    <h2 class="section-title">Course Syllabus</h2>
+
+    <p class="section-description">
+        Learn important concepts through structured modules.
+    </p>
+
+    <div class="syllabus-list">
+
+        <div class="syllabus-item">
+            <h3>🐍 Python Programming</h3>
+            <p>
+                Module 1: Introduction and syntax<br>
+                Module 2: Variables, data types, and operators<br>
+                Module 3: Conditions and loops<br>
+                Module 4: Functions and data structures<br>
+                Module 5: Object-oriented programming<br>
+                Module 6: Practical coding projects
+            </p>
+        </div>
+
+        <div class="syllabus-item">
+            <h3>🤖 Artificial Intelligence</h3>
+            <p>
+                Module 1: Introduction to AI<br>
+                Module 2: AI applications and intelligent agents<br>
+                Module 3: Search and problem-solving<br>
+                Module 4: Knowledge representation<br>
+                Module 5: Generative AI fundamentals<br>
+                Module 6: AI mini projects
+            </p>
+        </div>
+
+        <div class="syllabus-item">
+            <h3>🧠 Machine Learning</h3>
+            <p>
+                Module 1: Introduction to ML<br>
+                Module 2: Data collection and cleaning<br>
+                Module 3: Regression and classification<br>
+                Module 4: Clustering and unsupervised learning<br>
+                Module 5: Model evaluation<br>
+                Module 6: Machine learning projects
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+
+    <h2 class="section-title">Why Choose FutureTech?</h2>
+
+    <p class="section-description">
+        Build practical skills with a structured learning experience.
+    </p>
+
+    <div class="benefit-container">
+
+        <div class="benefit">
+            <div>💻</div>
+            <h3>Practical Coding</h3>
+            <p>Practice programming with examples and mini projects.</p>
+        </div>
+
+        <div class="benefit">
+            <div>⏰</div>
+            <h3>Flexible Learning</h3>
+            <p>Study at your own pace and revise concepts whenever needed.</p>
+        </div>
+
+        <div class="benefit">
+            <div>📚</div>
+            <h3>Structured Lessons</h3>
+            <p>Follow organized modules from basic to advanced topics.</p>
+        </div>
+
+        <div class="benefit">
+            <div>🎯</div>
+            <h3>Project-Based Learning</h3>
+            <p>Apply your knowledge by developing useful projects.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ENROLLMENT FORM -->
+<section id="enrollment">
+
+    <h2 class="section-title">Student Enrollment</h2>
+
+    <p class="section-description">
+        Complete the form below to register your interest in a course.
+    </p>
+
+    <div class="form-container">
+
+        <form id="enrollmentForm">
+
+            <label for="studentName">Full Name *</label>
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter your full name"
+                minlength="2"
+                required>
+
+            <label for="email">Email Address *</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address"
+                required>
+
+            <label for="phone">Mobile Number *</label>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your 10-digit mobile number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                inputmode="numeric"
+                required>
+
+            <label for="college">College / Institution *</label>
+            <input
+                type="text"
+                id="college"
+                placeholder="Enter your college name"
+                required>
+
+            <label for="year">Year of Study *</label>
+            <select id="year" required>
+                <option value="">Select your year</option>
+                <option>First Year</option>
+                <option>Second Year</option>
+                <option>Third Year</option>
+                <option>Fourth Year</option>
+                <option>Other</option>
+            </select>
+
+            <label for="course">Select Course *</label>
+            <select id="course" required>
+                <option value="">Choose a course</option>
+                <option value="Python Programming">Python Programming - ₹999</option>
+                <option value="Artificial Intelligence">Artificial Intelligence - ₹1,499</option>
+                <option value="Machine Learning">Machine Learning - ₹1,999</option>
+                <option value="All Three Courses">All Three Courses</option>
+            </select>
+
+            <label for="mode">Learning Mode *</label>
+            <select id="mode" required>
+                <option value="">Select learning mode</option>
+                <option value="Online Live Classes">Online Live Classes</option>
+                <option value="Self-Paced Learning">Self-Paced Learning</option>
+            </select>
+
+            <label for="goals">Your Learning Goals</label>
+            <textarea
+                id="goals"
+                rows="4"
+                placeholder="What would you like to learn?"></textarea>
+
+            <button type="submit" class="btn">
+                Submit Enrollment
+            </button>
+
+            <div id="message" role="status" aria-live="polite"></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>🚀 <span>FutureTech Learning Academy</span></h2>
+
+    <p>Learn Python. Explore AI. Master Machine Learning.</p>
+
+    <p>Email: futuretech@example.com</p>
+
+    <p>© 2026 FutureTech Academy | All Rights Reserved</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+
+// SEARCH COURSES
+function searchCourses() {
+
+    const input = document
+        .getElementById("searchInput")
+        .value.toLowerCase()
+        .trim();
+
+    const cards = document.querySelectorAll(".course-card");
+    let found = 0;
+
+    cards.forEach(function(card) {
+
+        const name = card.dataset.name.toLowerCase();
+
+        if (name.includes(input)) {
+            card.style.display = "";
+            found++;
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+}
+
+// SELECT COURSE
+function selectCourse(courseName) {
+
+    document.getElementById("course").value = courseName;
+
+    document.getElementById("enrollment").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+// ENROLLMENT FORM
+document.getElementById("enrollmentForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const form = this;
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    const name = document
+        .getElementById("studentName")
+        .value.trim();
+
+    const course = document
+        .getElementById("course")
+        .value;
+
+    const message = document.getElementById("message");
+
+    message.style.color = "green";
+
+    message.textContent =
+        "Thank you, " + name +
+        "! Your demo enrollment for " + course +
+        " has been completed on this page. " +
+        "Your information has not been saved to a server.";
+
+    alert(
+        "Enrollment Demo Successful!\n\n" +
+        "Student: " + name + "\n" +
+        "Course: " + course
+    );
+
+    form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
+```
